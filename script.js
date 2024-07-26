@@ -51,7 +51,6 @@ function gameController() {
   const restart = () => {
     isOver = false;
     round = 0;
-    activePlayer = players[0];
     gameBoard.reset();
   };
 
@@ -136,6 +135,7 @@ function screenController() {
       cellBtn.classList.add("cell");
       cellBtn.textContent = cell;
       cellBtn.addEventListener("click", () => {
+        if(cellBtn.textContent !== '') return;
         game.playRound(index);
         updateDisplay();
         updateInfo();
